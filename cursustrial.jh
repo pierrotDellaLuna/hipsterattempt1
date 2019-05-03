@@ -1,0 +1,78 @@
+entity StudentApp {
+
+entity Student {
+studentFirstName String ;
+studentLastName  String ;  
+inscriptionDate LocalDate;
+code int ;
+description String ;
+}
+
+entity Region {
+regionName String ; 
+code int ;
+description String ;
+}
+
+entity School {
+schoolName String ;
+code int ;
+description String ;
+}
+
+entity Adress {
+street String ;
+streetnumb int ;
+housenumb int ;
+code int ;
+description String ;
+}
+entity Town {
+name String
+code int ;
+description String ;
+}
+entity Clazz {
+code String ;
+code int ;
+description String ;
+}
+
+entity cursus {
+happening LocalTime ;
+code String ;
+code int ;
+description String ;
+dies dayOfTheWeek ;
+}
+
+entity Coach {
+name String ;
+phone String ;
+courses TypeCourses ;
+coursesop TypeCourses ;
+}
+
+enum TypeCourses {
+History , Math , Lang1 , Lang2 , Geograph , Lang4 , Lang3, MathSup 
+}
+
+enum dayOfTheWeek {
+Moon , Thor , Mercury , Junon , Freya 
+}
+
+relationship OneToMany {
+from Region to Town
+}
+relationship OneToMany {
+from Coach to Cursus
+}
+relationship OneToMany {
+from student to Cursus
+}
+relationship OneToOne {
+from  Student to Adress 
+}
+relationship OneToOne {
+from  School to Adress 
+}
